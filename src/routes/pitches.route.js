@@ -129,6 +129,8 @@ const Offer=require('../models/offers.model');
 try{
 
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {throw Error('Not Found');}
+  const pitch = await Pitch.find({_id : req.params.id});
+  if (!pitch) throw Error('Not Found');
 
   if (Object.keys(req.body).length===0) {
     throw Error('Send proper data');
@@ -140,11 +142,7 @@ try{
    || newOffer.investor.trim().length===0 || newOffer.comment.trim().length===0
    || newOffer.amount<0 || newOffer.equity<0 || newOffer.equity>100){
     throw Error('Invalid data');
-  }
-
-  const pitch = await Pitch.find({_id : req.params.id});
-  if (!pitch) throw Error('Not Found');
-  
+  }  
 
   const offer = await newOffer.save();
   res.status(201).json({id:offer._id});
