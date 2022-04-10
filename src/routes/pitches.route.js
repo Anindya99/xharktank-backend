@@ -30,7 +30,7 @@ const Offer=require('../models/offers.model');
               return newPitch;   
         });
         
-        res.status(201).json(newPitches);
+        res.status(200).json(newPitches);
     } catch (e) {
         res.status(400).json({ msg: e.message });
     }
@@ -98,7 +98,7 @@ const Offer=require('../models/offers.model');
         
         const newPitch={id:pitch._id,entrepreneur:pitch.entrepreneur,pitchTitle:pitch.pitchTitle,pitchIdea:pitch.pitchIdea,
           askAmount:pitch.askAmount,equity:pitch.equity,offers:off2};
-        res.status(201).json(newPitch);
+        res.status(200).json(newPitch);
     } catch (e) {
       if(e.message==='Not Found') res.status(404).json({ msg: e.message });
       else res.status(400).json({ msg: e.message });

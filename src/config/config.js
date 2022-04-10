@@ -1,3 +1,3 @@
 module.exports ={
-    db_link:"mongodb://localhost:27017/xharktank"
+    db_link:"mongodb://localhost:27017/xharktanknaya"
 };
