@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script must contain a series of commands to run the backend application
 # Eg:- For Node.js project;
-  cd backend
+  cd ./backend
   npm run start
 # Eg:- For SpringBoot Project;
 #       ./gradlew bootRun
