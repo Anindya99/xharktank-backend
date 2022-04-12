@@ -26,5 +26,10 @@ app.use('*', function(req, res){
      res.send('PAGE NOT FOUND', 404);
 });
 
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+}
+
 const port = process.env.PORT || 8081;
 app.listen(port, ()=>console.log(`server started at post ${port}`));
