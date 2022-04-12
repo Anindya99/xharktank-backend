@@ -1,3 +1,5 @@
+const dotenv = require("dotenv");
+dotenv.config();
 module.exports ={
-    db_link:"mongodb://localhost:27017/xharktank"
+    db_link:process.env.DB_LINK
 };
