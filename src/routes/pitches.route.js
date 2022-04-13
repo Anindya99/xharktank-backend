@@ -16,7 +16,7 @@ const Offer=require('../models/offers.model');
     try {   
         const pitches = await Pitch.find().sort({time:-1});
 
-        const offers= await Offer.find().sort({ time: -1 });
+        const offers= await Offer.find().sort({ time: 1 });
       
         var newPitches= pitches.map(pitch=>{
               //filtering the offers of respective pitch  
@@ -89,7 +89,7 @@ const Offer=require('../models/offers.model');
         const pitch = await Pitch.findById(req.params.id);
         if (!pitch) throw Error('Not Found');
         
-        const alloffers= await Offer.find().sort({ time: -1 });
+        const alloffers= await Offer.find().sort({ time: 1 });
         var offers= alloffers.filter(obj => obj.pitchId.equals(req.params.id) );
         var off2= offers.map(obj=>{
           const obj2={id:obj._id,investor:obj.investor,amount:obj.amount,equity:obj.equity,comment:obj.comment};
